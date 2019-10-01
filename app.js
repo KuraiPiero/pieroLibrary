@@ -42,17 +42,28 @@ app.get('/', (req, res) => {
 });
 app.use(express.static(__dirname + '/public'));
 //TODO Mongo Connection
-mongoose.connect(
-	process.env.MONGOLAB_URI,
+if(process.env.MONGODB_URI){
+	mongoose.connect(
+	process.env.MONGODB_URI,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	},
 	() => {
 		console.log('connect to DB');
+	  }
+	
+)}else{mongoose.connect(
+	process.env.DB_CONNECTION,
+	{
+	  useNewUrlParser: true,
+	  useUnifiedTopology: true
+	},
+	() => {
+	  console.log('connect to DB');
 	}
-);
+)}
 
 //?Server Listener
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 //app.use('/', orderController);
