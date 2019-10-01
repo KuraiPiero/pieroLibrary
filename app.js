@@ -30,13 +30,9 @@ app.use(
 app.use(bodyParser.json());
 require('dotenv/config');
 //!Routes
-const homeRoute = require('./routes/home')
-app.use('/home', homeRoute)
+
 const stockRoute = require('./routes/libros');
 app.use('/api/libros', stockRoute);
-app.get('/', (req,res)=>{
-	res.render('layout')
-})
 const rutaDeRegistro = require('./routes/register');
 app.use('/api/usuarios', rutaDeRegistro);
 const rutaDeSesion = require('./routes/login');
