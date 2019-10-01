@@ -34,7 +34,7 @@ const homeRoute = require('./routes/home')
 app.use('/home', homeRoute)
 const stockRoute = require('./routes/libros');
 app.use('/api/libros', stockRoute);
-app.user('/home')
+app.use('/home')
 const rutaDeRegistro = require('./routes/registration');
 app.use('/api/usuarios', rutaDeRegistro);
 const rutaDeSesion = require('./routes/login');
