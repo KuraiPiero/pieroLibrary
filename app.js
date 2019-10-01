@@ -39,9 +39,7 @@ const rutaDeRegistro = require('./routes/registration');
 app.use('/api/usuarios', rutaDeRegistro);
 const rutaDeSesion = require('./routes/login');
 app.use('/api/usuarios', rutaDeSesion);
-app.get('/', (req, res) => {
-	res.send('Entering Piero Letters');
-});
+
 app.use(express.static(__dirname + '/public'));
 //TODO Mongo Connection
 if(process.env.MONGODB_URI){
