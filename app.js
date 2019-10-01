@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 app.use(express.static(__dirname + '/public'));
 //TODO Mongo Connection
 mongoose.connect(
-	mongodb+srv://btcreator:tLyukrm9qekoREmx@library-pljsm.mongodb.net/Libreria?retryWrites=true&w=majority,
+	heroku config:set MONGOLAB_URI = 'mongodb+srv://btcreator:tLyukrm9qekoREmx@library-pljsm.mongodb.net/Libreria?retryWrites=true&w=majority',
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
