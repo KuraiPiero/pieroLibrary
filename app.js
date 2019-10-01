@@ -34,8 +34,10 @@ const homeRoute = require('./routes/home')
 app.use('/home', homeRoute)
 const stockRoute = require('./routes/libros');
 app.use('/api/libros', stockRoute);
-app.use('/home')
-const rutaDeRegistro = require('./routes/registration');
+app.get('/', (req,res)=>{
+	res.render('layout')
+})
+const rutaDeRegistro = require('./routes/register');
 app.use('/api/usuarios', rutaDeRegistro);
 const rutaDeSesion = require('./routes/login');
 app.use('/api/usuarios', rutaDeSesion);
